@@ -1,0 +1,14 @@
+"""Authentication schemas"""
+from pydantic import BaseModel, EmailStr
+
+
+class TokenRequest(BaseModel):
+    """Token request schema"""
+    email: EmailStr
+    password: str
+
+
+class TokenResponse(BaseModel):
+    """Token response schema"""
+    access_token: str
+    token_type: str = "bearer"
